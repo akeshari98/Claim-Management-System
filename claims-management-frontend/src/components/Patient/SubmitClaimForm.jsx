@@ -64,7 +64,7 @@ function SubmitClaimForm({ onClaimSubmitted }) {
         }
       });
       
-      console.log('Claim submitted successfully:', response.data);
+      console.log('Claim submitted successfully...:', response.data);
       setSuccessMessage('Claim submitted successfully!');
       onClaimSubmitted();
       setFormData({
