@@ -8,4 +8,9 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 3000 
+        value: 3000
+      - key: MONGODB_URI
+        sync: false # This will be set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false # This will be set manually in Render dashboard
+    nodeVersion: 18.19.0 # Using LTS version for better stability 
