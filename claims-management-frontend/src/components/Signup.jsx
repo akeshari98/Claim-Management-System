@@ -47,6 +47,7 @@ function Signup() {
       alert('Signup successful! Please login.');
       navigate('/login');
     } catch (error) {
+      console.error('Signup error:', error);
       setError(error.response?.data?.message || 'Signup failed');
     }
   };

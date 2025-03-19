@@ -130,7 +130,7 @@ function InsurerDashboard() {
 
       {selectedClaim && (
         <div className="card">
-          <h3 className="section-title">Review Claim</h3>
+          <h3 className="section-title">Review Claimed</h3>
           <ManageClaim claim={selectedClaim} onUpdate={getClaims} />
         </div>
       )}

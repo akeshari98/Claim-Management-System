@@ -15,11 +15,11 @@ async function bootstrap() {
 
   // Enable CORS with comprehensive configuration
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3001',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS', 'HEAD'],
+    origin: '*', // Allow requests from any origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
     exposedHeaders: ['Content-Disposition', 'Content-Type'],
-    credentials: true,
+    credentials: false, // Set to false when using '*' for origin
     maxAge: 3600,
   });
 

@@ -14,7 +14,7 @@ if (!fs.existsSync(uploadsDir)) {
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/claims-management'),
+    MongooseModule.forRoot('mongodb+srv://Ayush:akeshari986@cluster0.aiubw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'),
     JwtModule.register({
       global: true,
       secret: 'your-secret-key', // In production, use environment variables

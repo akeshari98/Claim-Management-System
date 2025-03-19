@@ -1,13 +1,23 @@
-import { Controller, Post, Body, Get, UseGuards, Request } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, Request, Logger } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
+  private readonly logger = new Logger(UsersController.name);
+
   constructor(private readonly usersService: UsersService) {}
 
   @Post('signup')
   async signup(@Body() userData: { name: string; email: string; password: string }) {
-    return this.usersService.signup(userData);
+    this.logger.log(`Signup attempt for email: ${userData.email}`);
+    try {
+      const result = await this.usersService.signup(userData);
+      this.logger.log(`Signup successful for email: ${userData.email}`);
+      return result;
+    } catch (error) {
+      this.logger.error(`Signup failed for email: ${userData.email}`, error);
+      throw error;
+    }
   }
 
   @Post('login')
